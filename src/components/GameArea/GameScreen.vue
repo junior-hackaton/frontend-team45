@@ -1,10 +1,13 @@
 <template>
-<div>
-    <game-rules>
-    <game-board>
-    <congratulations-screen>
+  <div>
+    <h1>Добро пожаловать в игру</h1>
+    <game-rules />
+    <game-board />
     <legend />
-</div>
+    <congratulations-screen />
+  </div>
 </template>
 
 <script></script>
+
+<style lang="scss" scoped></style>
