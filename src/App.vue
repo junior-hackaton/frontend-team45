@@ -27,7 +27,7 @@ export default {
 </script>
 <style lang="scss">
 body {
-  font-family: 'Josefin Sans', sans-serif;
+font-family: 'Jost', sans-serif;
   font-style: normal;
   font-size: 16px;
   margin: 0;

@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  
   props: {
     legendText: Boolean
   },
@@ -100,7 +101,7 @@ export default {
     font-size: 34px;
     color: rgb(194, 212, 212);
     line-height: 20px;
-    font-weight: 100;
+    font-weight: 400;
     letter-spacing: 5px;
     text-transform: uppercase;
     @media screen and (max-width: 660px) {
@@ -118,7 +119,7 @@ export default {
     text-align: left;
     font-size: 22px;
     line-height: 20px;
-    font-weight: 100;
+    font-weight: 400;
     letter-spacing: 1px;
   }
 }

@@ -16,3 +16,4 @@ app.component('congratulations-screen', CongratulationsScreen);
 app.component('legend-info', LegendInfo);
 
 app.mount('#app');
+
