@@ -5,16 +5,13 @@
         <div class="main">
           <h1 class="main__title">Победи страхи ребенка</h1>
           <p class="main__description">В этой игре бла бла бла</p>
-          <router-link to="/game-board">
-            <button class="main__button" @click="startGame">Старт</button>
-          </router-link>
+          <button class="main__button" @click="startGame">Старт</button>
         </div>
 
         <div class="main__options">
           <div class="main__options-buttons">
-            <button class="main__options-button" @click="toggleRulesText">Правила</button>
-
-            <router-link class="main__options-button" to="/legend">Легенда страхов</router-link>
+            <button class="main__options-button" @click="toggleGameRules">Правила</button>
+            <button class="main__options-button" @click="navigateToLegend">Легенда страхов</button>
           </div>
           <div class="main__options-difficulty">
             <label class="main__options-difficulty-label" for="difficulty"
@@ -38,44 +35,34 @@
       </div>
     </div>
 
-    <div v-if="rulesText" class="rules__text">
-      <div class="rules__content">
-        <button class="rules__button" @click="closeRulesText">×</button>
-        <div>
-          <h2 class="rules__title">Правила</h2>
-          <p>
-            Сражайтесь со страхами, кликая по ним курсором. За каждое успешное попадание вы
-            получаете очки. Постарайтесь набрать максимальное количество очков за отведенное время.
-          </p>
-        </div>
-      </div>
+    <div v-if="showGameRules" class="rules__text">
+      <GameRules :rulesText="showGameRules" @close-rules-text="toggleGameRules" />
     </div>
   </div>
 </template>
 
 <script>
-import Legend from './Legend.vue';
-import GameBoard from './GameBoard.vue';
-
+import GameRules from './GameRules.vue';
+import LegendInfo from './LegendInfo.vue';
 export default {
   components: {
-    Legend,
-    GameBoard
+    GameRules,
+    LegendInfo
   },
   data() {
     return {
+      showGameRules: false,
       selectedDifficulty: 'easy',
-      rulesText: false,
-      difficultyOptions: ['easy', 'medium', 'hard']
+      difficultyOptions: ['easy', 'medium', 'hard'],
+      selectActive: false,
+      showLegend: false
     };
   },
   methods: {
     startGame() {},
-    toggleRulesText() {
-      this.rulesText = !this.rulesText;
-    },
-    closeRulesText() {
-      this.rulesText = false;
+    toggleGameRules() {
+      this.showGameRules = !this.showGameRules;
+      console.log('showGameRules:', this.showGameRules);
     },
     toggleSelect() {
       this.selectActive = !this.selectActive;
@@ -83,13 +70,15 @@ export default {
     selectDifficulty(difficulty) {
       this.selectedDifficulty = difficulty;
       this.selectActive = false;
+    },
+    navigateToLegend() {
+      this.showLegend = !this.showLegend;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
 * {
   padding: 0;
   margin: 0;
@@ -200,49 +189,7 @@ export default {
   }
 }
 
-//Rules
-.rules {
-  &__text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  &__content {
-    position: relative;
-    max-width: 28em;
-    text-align: left;
-    width: 100%;
-    line-height: 24px;
-    background-color: rgb(140, 184, 169);
-    color: rgb(24, 4, 4);
-    padding: 1.5em;
-    border-radius: 5px;
-    text-align: center;
-  }
-  &__title {
-    margin-bottom: 1em;
-  }
-
-  &__button {
-    position: absolute;
-    top: 0.3em;
-    left: 11.5em;
-    font-size: 35px;
-    background: none;
-    border: none;
-    color: rgb(114, 28, 28);
-    cursor: pointer;
-  }
-}
-
 //Difficulty select
-
 .custom-select-container {
   cursor: pointer;
   margin-top: 1em;

@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div id="app">
+  
     <game-screen />
     <game-rules />
     <game-board />
     <congratulations-screen />
-    <legend />
+    <legend-info />
   </div>
 </template>
 
