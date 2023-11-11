@@ -1,3 +1,5 @@
+
+
 <template>
   <div>
     <div class="wrapper">
@@ -226,7 +228,6 @@ export default {
     background-color: rgb(172, 80, 80);
     font-weight: 900;
     letter-spacing: 1px;
-    transition: all 150ms linear;
     white-space: nowrap;
     &:first-child {
       @media screen and (max-width: 680px) {
@@ -240,8 +241,7 @@ export default {
     &:hover {
       background: (rgb(172, 80, 80), 1.5%);
       color: lighten(rgb(172, 80, 80), 18%);
-      text-decoration: none;
-      text-shadow: -1px -1px 0 (rgb(172, 80, 80), 9.5%);
+        text-shadow: -1px -1px 0 (rgb(172, 80, 80), 9.5%);
       transition: all 250ms linear;
     }
     @media screen and (max-width: 630px) {
@@ -287,3 +287,4 @@ button {
   outline: 1px rgb(87, 45, 45) solid;
 }
 </style>
+
