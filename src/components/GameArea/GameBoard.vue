@@ -1,7 +1,7 @@
 <template>
   <div>
     <div></div>
-    <button>Начать заново</button>
+    <!-- <button>Начать заново</button> -->
   </div>
 </template>
 

@@ -1,16 +1,15 @@
 <template>
-<div>
-<game-screen/>
-<game-rules/>
-<game-board/>
-<congratulations-screen/>
-<legend/>
-</div>
+  <div>
+    <game-screen />
+    <game-rules />
+    <game-board />
+    <congratulations-screen />
+    <legend />
+  </div>
 </template>
 
 <script>
 export default {
-
   data() {
     return {
       gameStarted: false,
@@ -23,17 +22,12 @@ export default {
     shootFear(index) {},
     restartGame() {},
     endGame() {}
-  },
-  components: {
-    GameScreen,
-    GameRules,
-    GameBoard,
-    CongratulationsScreen,
-    Legend,
-    Timer,
-    Weapon,
-    ScoreCounter,
-    Settings
   }
 };
 </script>
+<style lang="scss">
+body {
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+</style>
