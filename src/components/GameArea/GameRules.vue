@@ -51,6 +51,9 @@ export default {
     padding: 1.5em;
     border-radius: 5px;
     text-align: center;
+    @media screen and (max-width:540px) {
+          margin: 0 1em;
+    }
   }
   &__title {
     margin-bottom: 1em;
@@ -58,8 +61,8 @@ export default {
 
   &__button {
     position: absolute;
-    top: 0.3em;
-    left: 11.5em;
+    top: 0.6em;
+    left: 82%;
     font-size: 35px;
     background: none;
     border: none;

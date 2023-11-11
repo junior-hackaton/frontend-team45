@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="container">
         <div class="main">
-          <h1 class="main__title">Победи страхи ребенка</h1>
+          <h1 class="main__title">Сразись с детскими страхами</h1>
           <p class="main__description">В этой игре бла бла бла</p>
           <button class="main__button" @click="startGame">Старт</button>
         </div>
@@ -38,20 +38,21 @@
     <div v-if="showGameRules" class="rules__text">
       <GameRules :rulesText="showGameRules" @close-rules-text="toggleGameRules" />
     </div>
-   <div v-if="showLegend" class="legend__text">
-  <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
-</div>
-
+    <div v-if="showLegend" class="legend__text">
+      <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
+    </div>
   </div>
 </template>
 
 <script>
 import GameRules from './GameRules.vue';
 import LegendInfo from './LegendInfo.vue';
+import GameBoard from './GameBoard.vue';
 export default {
   components: {
     GameRules,
-    LegendInfo
+    LegendInfo,
+    GameBoard
   },
   data() {
     return {
@@ -75,9 +76,9 @@ export default {
       this.selectedDifficulty = difficulty;
       this.selectActive = false;
     },
-      toggleLegend() {
+    toggleLegend() {
       this.showLegend = !this.showLegend;
-    },
+    }
   }
 };
 </script>
@@ -93,7 +94,9 @@ export default {
   background-color: rgb(77, 154, 133);
   padding: 3em;
   height: 100vh;
-
+  @media screen and (max-width: 400px) {
+    padding: 1em;
+  }
 }
 .container {
   width: 100%;
@@ -107,11 +110,27 @@ export default {
   &__title {
     color: rgb(255, 232, 232);
     text-transform: uppercase;
+    font-size: 34px;
+    line-height: 36px;
+    letter-spacing: 2px;
+    font-weight: 700;
     margin-bottom: 1em;
+    @media screen and (max-width: 630px) {
+      font-size: 25px;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 18px;
+      line-height: 20px;
+    }
   }
   &__description {
+    font-size: 18px;
     color: rgb(49, 30, 30);
-    margin-bottom: 2em;
+    margin-bottom: 3em;
+    @media screen and (max-width: 400px) {
+      margin-bottom: 0.6em;
+    }
   }
 
   &__button {
@@ -146,8 +165,9 @@ export default {
       height: 100%;
       background: linear-gradient(120deg, transparent, rgba(146, 148, 248, 0.4), transparent);
     }
-    &:hover:before {
-      left: 100%;
+    @media screen and (max-width: 630px) {
+      transform: scale(0.8);
+      margin-bottom: 1em;
     }
   }
 
@@ -162,6 +182,12 @@ export default {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 2em;
+    @media screen and (max-width: 680px) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: 400px) {
+      margin-bottom: 0.6em;
+    }
   }
 
   &__options-button {
@@ -170,9 +196,7 @@ export default {
     width: 100%;
     color: rgb(222, 215, 215);
     font-size: 16px;
-    font-weight: 600;
     line-height: 45px;
-    margin: 0 0 2em;
     position: relative;
     text-transform: uppercase;
     border: none;
@@ -182,6 +206,14 @@ export default {
     letter-spacing: 1px;
     transition: all 150ms linear;
     white-space: nowrap;
+    &:first-child {
+      @media screen and (max-width: 680px) {
+        margin-bottom: 1em;
+      }
+      @media screen and (max-width: 400px) {
+        margin-bottom: 0.6em;
+      }
+    }
 
     &:hover {
       background: (rgb(172, 80, 80), 1.5%);
@@ -190,6 +222,14 @@ export default {
       text-shadow: -1px -1px 0 (rgb(172, 80, 80), 9.5%);
       transition: all 250ms linear;
     }
+    @media screen and (max-width: 630px) {
+      font-size: 14px;
+    }
+  }
+}
+button {
+  @media screen and (max-width: 400px) {
+    transform: scale(0.7);
   }
 }
 
@@ -203,6 +243,9 @@ export default {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (max-width: 400px) {
+    transform: scale(0.9);
+  }
 }
 .custom-select-option {
   padding: 0.6em;
