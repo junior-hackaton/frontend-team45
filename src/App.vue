@@ -28,6 +28,6 @@ export default {
 <style lang="scss">
 body {
   font-family: 'Josefin Sans', sans-serif;
-
+  margin: 0;
 }
 </style>

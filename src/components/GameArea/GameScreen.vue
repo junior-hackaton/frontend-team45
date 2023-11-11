@@ -89,6 +89,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 * {
   padding: 0;
   margin: 0;
@@ -113,7 +114,7 @@ export default {
   &__title {
     color: rgb(255, 232, 232);
     text-transform: uppercase;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
   &__description {
     color: rgb(49, 30, 30);
