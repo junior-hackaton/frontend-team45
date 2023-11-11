@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-  
     <game-screen />
     <game-rules />
     <game-board />
@@ -29,6 +28,9 @@ export default {
 <style lang="scss">
 body {
   font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-size: 16px;
   margin: 0;
+  overflow: hidden;
 }
 </style>

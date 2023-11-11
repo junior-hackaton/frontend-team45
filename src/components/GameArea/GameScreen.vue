@@ -11,7 +11,7 @@
         <div class="main__options">
           <div class="main__options-buttons">
             <button class="main__options-button" @click="toggleGameRules">Правила</button>
-            <button class="main__options-button" @click="navigateToLegend">Легенда страхов</button>
+            <button class="main__options-button" @click="toggleLegend">Легенда страхов</button>
           </div>
           <div class="main__options-difficulty">
             <label class="main__options-difficulty-label" for="difficulty"
@@ -38,6 +38,10 @@
     <div v-if="showGameRules" class="rules__text">
       <GameRules :rulesText="showGameRules" @close-rules-text="toggleGameRules" />
     </div>
+   <div v-if="showLegend" class="legend__text">
+  <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
+</div>
+
   </div>
 </template>
 
@@ -71,9 +75,9 @@ export default {
       this.selectedDifficulty = difficulty;
       this.selectActive = false;
     },
-    navigateToLegend() {
+      toggleLegend() {
       this.showLegend = !this.showLegend;
-    }
+    },
   }
 };
 </script>
@@ -89,14 +93,14 @@ export default {
   background-color: rgb(77, 154, 133);
   padding: 3em;
   height: 100vh;
+
 }
 .container {
-  display: block;
-  text-align: center;
   width: 100%;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 .main {
   text-align: center;
