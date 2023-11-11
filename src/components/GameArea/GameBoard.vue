@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div></div>
-    <button>Начать заново</button>
+    <v-btn>Начать заново</v-btn>
+    <p></p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['fears']
+  setup() {
+    return {};
+  }
 };
 </script>

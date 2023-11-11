@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Правила игры</h1>
-    <v-btn>Начать игру</v-btn>
+    <h2>Легенда</h2>
   </div>
 </template>
 
