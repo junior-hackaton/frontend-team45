@@ -1,8 +1,6 @@
 <template>
   <div class="game-board">
-    <div class="game-cell" v-for="(fear, index) in fears" :key="index">
-      {{ fear }}
-    </div>
+    
     <button @click="restartGame">Начать заново</button>
   </div>
 </template>
