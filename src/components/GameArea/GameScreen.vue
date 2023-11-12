@@ -56,6 +56,8 @@
 <script>
 import GameRules from './GameRules.vue';
 import LegendInfo from './LegendInfo.vue';
+import { useCounterStore } from '@/stores/counter.js';
+import FearItemTransition from './GameTools/FearItemTransition.vue';
 import GameBoard from './GameBoard.vue';
 
 export default {
@@ -92,7 +94,8 @@ export default {
     toggleLegend() {
       this.showLegend = !this.showLegend;
     }
-  }
+  },
+  components: { GameRules, GameBoard, FearItem, LegendInfo, CongratulationsScreen, FearItemTransition }
 };
 </script>
 
