@@ -41,16 +41,13 @@
       </div>
     </div>
 
+    <GameRules :rulesText="showGameRules" @close-rules-text="toggleGameRules" />
 
-      <GameRules :rulesText="showGameRules" @close-rules-text="toggleGameRules" />
+    <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
 
-
-      <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
-
-    
-   <GameBoard :show="showGameBoard" />
-    
-    
+    <div v-if="showGameBoard">
+      <GameBoard />
+    </div>
   </div>
 </template>
 
@@ -59,9 +56,7 @@ import GameRules from './GameRules.vue';
 import LegendInfo from './LegendInfo.vue';
 import GameBoard from './GameBoard.vue';
 
-
 export default {
- 
   components: {
     GameRules,
     LegendInfo,
@@ -80,7 +75,9 @@ export default {
   methods: {
     startGame() {
       this.showGameBoard = true;
-      console.log('showGameBoard:', this.showGameBoard);
+      this.$nextTick(() => {
+        console.log('showGameBoard:', this.showGameBoard);
+      });
     },
     toggleGameRules() {
       this.showGameRules = !this.showGameRules;
@@ -94,8 +91,7 @@ export default {
     },
     toggleLegend() {
       this.showLegend = !this.showLegend;
-    },
-    
+    }
   }
 };
 </script>

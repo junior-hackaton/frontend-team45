@@ -1,25 +1,17 @@
 <template>
-  <div class="wrapper">
-    <div class="container">
-      <div v-if="!showGameScreen" class="game-board">
-        <div class="game-board__buttons">
-          <button class="game-board__button" @click="restartGame">Начать заново</button>
-          <button class="game-board__button" @click="goToMainMenu">Главное меню</button>
-        </div>
-        <div class="game-board__field"></div>
+  <div class="container">
+    <div v-if="!showGameScreen" class="game-board">
+      <div class="game-board__buttons">
+        <button class="game-board__button" @click="restartGame">Начать заново</button>
+        <button class="game-board__button" @click="closeGameBoard">Главное меню</button>
       </div>
-      <GameScreen v-if="showGameScreen" />
+      <div class="game-board__field"></div>
     </div>
   </div>
 </template>
 
 <script>
-import GameScreen from './GameScreen.vue';
-
 export default {
-  components: {
-    GameScreen
-  },
   data() {
     return {
       showGameScreen: false
@@ -29,25 +21,16 @@ export default {
     restartGame() {
       console.log('Game restarted');
     },
-    goToMainMenu() {
-      this.showGameScreen = !this.showGameScreen; 
+
+    closeGameBoard() {
+      this.showGameScreen = true;
     }
   }
 };
 </script>
-<style lang="scss" scoped>
-.wrapper {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background-color: rgb(77, 154, 133);
-  padding: 2em;
-  height: 100vh;
 
-  @media screen and (max-width: 400px) {
-    padding: 1em;
-  }
-}
+<style lang="scss" scoped>
+//
 .container {
   width: 100%;
   max-width: 1440px;
@@ -56,6 +39,12 @@ export default {
   text-align: center;
 }
 .game-board {
+  position: absolute;
+  top: 3%;
+  left: 0;
+  width: 100%;
+  background-color: rgb(77, 154, 133);
+  height: 100vh;
   &__buttons {
     display: flex;
     justify-content: space-evenly;

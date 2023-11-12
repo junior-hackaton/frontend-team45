@@ -39,7 +39,7 @@ body {
   font-style: normal;
   font-size: 16px;
   margin: 0;
-  // overflow: hidden;
+  overflow: hidden;
 }
 </style>
 
