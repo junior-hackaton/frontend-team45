@@ -10,6 +10,7 @@
 
 <script>
 import GameScreen from './components/GameArea/GameScreen.vue';
+
 import CongratulationsScreen from './components/GameArea/CongratulationsScreen.vue';
 import GameBoard from './components/GameArea/GameBoard.vue';
 import GameRules from './components/GameArea/GameRules.vue';
