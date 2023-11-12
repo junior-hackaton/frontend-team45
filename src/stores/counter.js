@@ -5,9 +5,16 @@ import { defineStore } from 'pinia';
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     time: ref(30),
-    isTimerOn: false
+    isTimerOn: false,
+    points: ref(0),
   }),
   actions: {
+    addPoint(){
+      this.points +=1;
+    },
+    resetPoints(){
+      this.points = 0;
+    },
     restartTimer() {
       this.time = 30;
     },

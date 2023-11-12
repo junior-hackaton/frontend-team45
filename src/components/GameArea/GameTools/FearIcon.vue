@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg
+    <svg @click="addpoint"
         version="1.1"
         id="svg1986"
         xml:space="preserve"
@@ -136,8 +136,12 @@
 </template>
 
 <script>
+  import { useCounterStore } from '../../stores/counter';
   export default {
-    
+    setup(){
+    const counter = useCounterStore();
+    return {counter}
+    }
   }
 </script>
 

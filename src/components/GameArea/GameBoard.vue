@@ -3,34 +3,49 @@
     <div v-if="!showGameScreen" class="game-board">
       <div class="game-board__buttons">
         <button class="game-board__button" @click="restartGame">Начать заново</button>
+        <p>{{ counter.points }}</p>
         <button class="game-board__button" @click="closeGameBoard">Главное меню</button>
       </div>
-      <div class="game-board__field"></div>
+      <div class="game-board__field">
+        <FearItemTransition/>
+        <FearItemTransition/>
+        <FearItemTransition/>
+        <FearItemTransition/>
+        <FearItemTransition/>
+        <FearItemTransition/>
+        <FearItemTransition/>
+        <FearItemTransition/>
+        <FearItemTransition/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { useStateStore } from '../../stores/state';
+import { useCounterStore } from '../../stores/counter';
+import FearItemTransition from './GameTools/FearItemTransition.vue';
 
 export default {
-  data() {
-    const state = useStateStore();
-    return {
-      // showGameRules: false,
-      // selectedDifficulty: 'easy',
-      // difficultyOptions: ['easy', 'medium', 'hard'],
-      // selectActive: false,
-      // showLegend: false,
-      // showGameBoard: false
-      state
-    };
-  },
-  methods:{
-    closeGameBoard(){
-      this.state.showGameBoard = false;
-    }
-  }
+    data() {
+        const state = useStateStore();
+        const counter = useCounterStore();
+        return {
+            // showGameRules: false,
+            // selectedDifficulty: 'easy',
+            // difficultyOptions: ['easy', 'medium', 'hard'],
+            // selectActive: false,
+            // showLegend: false,
+            // showGameBoard: false
+            state
+        };
+    },
+    methods: {
+        closeGameBoard() {
+            this.state.showGameBoard = false;
+        }
+    },
+    components: { FearItemTransition }
 };
 </script>
 
