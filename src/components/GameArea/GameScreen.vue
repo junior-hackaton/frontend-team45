@@ -24,10 +24,10 @@
               >Выберите уровень сложности</label
             >
             <div class="custom-select-container" @click="toggleSelect">
-              <div :class="{ 'custom-select-dropdown': true, active: selectActive }">
+              <div :class="{ 'custom-select-dropdown': true, active: state.selectActive }">
                 <div
                   class="custom-select-option"
-                  v-for="option in difficultyOptions"
+                  v-for="option in state.difficultyOptions"
                   :key="option"
                   @click="selectDifficulty(option)"
                   :class="{ active: selectedDifficulty === option }"
@@ -41,13 +41,11 @@
       </div>
     </div>
 
-    <div v-if="showGameRules" class="rules__text">
-      <GameRules :rulesText="showGameRules" @close-rules-text="toggleGameRules" />
-    </div>
-    <div v-if="showLegend" class="legend__text">
-      <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
-    </div>
-  <div v-if="showGameBoard" class="game-board" :key="showGameBoard">
+    <GameRules :rulesText="state.showGameRules" @close-rules-text="toggleGameRules" />
+
+    <LegendInfo :legendText="state.showLegend" @close-legend-text="toggleLegend" />
+
+    <div v-if="state.showGameBoard">
       <GameBoard />
     </div>
   </div>
@@ -59,6 +57,7 @@ import LegendInfo from './LegendInfo.vue';
 import { useCounterStore } from '@/stores/counter.js';
 import FearItemTransition from './GameTools/FearItemTransition.vue';
 import GameBoard from './GameBoard.vue';
+import { useStateStore } from '@/stores/store.js'
 
 export default {
   components: {
@@ -67,32 +66,36 @@ export default {
     GameBoard
   },
   data() {
+    const state = useStateStore();
     return {
-      showGameRules: false,
-      selectedDifficulty: 'easy',
-      difficultyOptions: ['easy', 'medium', 'hard'],
-      selectActive: false,
-      showLegend: false,
-      showGameBoard: false
+      // showGameRules: false,
+      // selectedDifficulty: 'easy',
+      // difficultyOptions: ['easy', 'medium', 'hard'],
+      // selectActive: false,
+      // showLegend: false,
+      // showGameBoard: false
+      state
     };
   },
   methods: {
     startGame() {
-      this.showGameBoard = true;
-      console.log('showGameBoard:', this.showGameBoard);
+      this.state.showGameBoard = true;
+      this.$nextTick(() => {
+        console.log('showGameBoard:', this.state.showGameBoard);
+      });
     },
     toggleGameRules() {
-      this.showGameRules = !this.showGameRules;
-      console.log('showGameRules:', this.showGameRules);
+      this.state.showGameRules = !this.state.showGameRules;
+      console.log('showGameRules:', this.state.showGameRules);
     },
     toggleSelect() {
-      this.selectActive = !this.selectActive;
+      this.state.selectActive = !this.state.selectActive;
     },
     selectDifficulty(difficulty) {
-      this.selectedDifficulty = difficulty;
+      this.state.selectedDifficulty = difficulty;
     },
     toggleLegend() {
-      this.showLegend = !this.showLegend;
+      this.state.showLegend = !this.state.showLegend;
     }
   },
   components: { GameRules, GameBoard, FearItem, LegendInfo, CongratulationsScreen, FearItemTransition }

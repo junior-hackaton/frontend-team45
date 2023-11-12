@@ -1,6 +1,7 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
+
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     time: ref(30),
@@ -39,3 +40,4 @@ export const useCounterStore = defineStore('counter', {
     }
   }
 });
+

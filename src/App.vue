@@ -1,41 +1,46 @@
 <template>
-  <div id="app">
-    <game-screen />
-    <game-rules />
-    <game-board />
-    <congratulations-screen />
-    <legend-info />
+  <div>
+    <GameScreen/>
+    <GameRules v-if="state.rules" />
+    <GameBoard v-if="state.showGameBoard" />
+    <CongratulationsScreen v-if="state.congatulations" />
+    <LegendInfo v-if="state.legend" />
   </div>
 </template>
 
 <script>
 import GameScreen from './components/GameArea/GameScreen.vue';
-import GameRules from './components/GameArea/GameRules.vue';
-import GameBoard from './components/GameArea/GameBoard.vue';
+
 import CongratulationsScreen from './components/GameArea/CongratulationsScreen.vue';
+import GameBoard from './components/GameArea/GameBoard.vue';
+import GameRules from './components/GameArea/GameRules.vue';
+import LegendInfo from './components/GameArea/LegendInfo.vue';
+import { useStateStore } from './stores/store.js';
 
 export default {
-  data() {
+  setup() {
+    const state = useStateStore();
     return {
-      gameStarted: false,
-      gameOver: false,
-      score: 0
+      state
     };
   },
+
   methods: {
     startGame() {},
     shootFear(index) {},
     restartGame() {},
     endGame() {}
-  }
+  },
+  components: { GameScreen, GameBoard, GameRules, CongratulationsScreen, LegendInfo }
 };
 </script>
 <style lang="scss">
 body {
-font-family: 'Jost', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-style: normal;
   font-size: 16px;
   margin: 0;
   overflow: hidden;
 }
 </style>
+

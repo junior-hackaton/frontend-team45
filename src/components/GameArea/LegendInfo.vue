@@ -6,7 +6,12 @@
         <button class="legend__button" @click="closeLegendText">Назад</button>
         <div>
           <h2 class="legend__title">Легенда страхов</h2>
-          <p class="legend__description">текст легенды страхов</p>
+          <p class="legend__description">
+            В глубинах детских кошмаров родилась легенда. Воин, вооруженный курсором, встал против
+            страхов, воплощенных в привидениях. С каждым выстрелом он освобождал детей от темных
+            теней, позволяя им смеяться и расти. Эта легенда - история о бесстрашном бое с
+            кошмарами, о возврате света и радости в сердца детей.
+          </p>
         </div>
       </div>
     </div>
@@ -15,7 +20,6 @@
 
 <script>
 export default {
-  
   props: {
     legendText: Boolean
   },
@@ -63,7 +67,7 @@ export default {
       transform: scale(0.9);
     }
     @media screen and (max-width: 320px) {
-       left: 0;
+      left: 0;
       transform: scale(0.8);
     }
   }
@@ -92,7 +96,7 @@ export default {
       left: 68%;
     }
     @media screen and (max-width: 320px) {
-        left: 60%;
+      left: 60%;
       transform: scale(0.6);
     }
   }
@@ -121,6 +125,7 @@ export default {
     line-height: 20px;
     font-weight: 400;
     letter-spacing: 1px;
+    max-width: 50em;
   }
 }
 </style>
