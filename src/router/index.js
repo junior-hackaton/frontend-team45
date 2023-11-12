@@ -1,23 +1,44 @@
-// import { createRouter, createWebHistory } from 'vue-router'
-// import Main from "../components/Main.vue"
+// // router/index.js
+// import Vue from 'vue';
+// import VueRouter from 'vue-router';
+// import GameScreen from './GameArea/GameScreen.vue';
+// import GameRules from './GameArea/GameRules.vue';
+// import GameBoard from './GameArea/GameBoard.vue';
+// import CongratulationsScreen from './GameArea/CongratulationsScreen.vue';
+// import Legend from './GameArea/Legend.vue';
 
-// const router = createRouter({
-//   history: createWebHistory(import.meta.env.BASE_URL),
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'home',
-//       component: Main
-//     },
-//     {
-//       path: '/about',
-//       name: 'about',
-//       // route level code-splitting
-//       // this generates a separate chunk (About.[hash].js) for this route
-//       // which is lazy-loaded when the route is visited.
-//       component: () => import('../views/AboutView.vue')
-//     }
-//   ]
-// })
+// Vue.use(VueRouter);
 
-// export default router
+// const routes = [
+//   {
+//     path: '/',
+//     name: 'GameScreen',
+//     component: GameScreen,
+//   },
+//   {
+//     path: '/game-rules',
+//     name: 'GameRules',
+//     component: GameRules,
+//   },
+//   {
+//     path: '/game-board',
+//     name: 'GameBoard',
+//     component: GameBoard,
+//   },
+//   {
+//     path: '/congratulations-screen',
+//     name: 'CongratulationsScreen',
+//     component: CongratulationsScreen,
+//   },
+//   {
+//     path: '/legend',
+//     name: 'Legend',
+//     component: Legend,
+//   },
+// ];
+
+// const router = new VueRouter({
+//   routes,
+// });
+
+// export default router;
