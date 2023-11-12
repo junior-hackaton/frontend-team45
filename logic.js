@@ -1,7 +1,9 @@
 let score = 0;
-const fears = document.querySelector('fear');
-const obstacles = document.querySelector('obstacle');
+let time = 0;
+const fears = document.querySelector('.fear');
+const obstacles = document.querySelector('.obstacle');
 const gameSpace = document.querySelector('#game-board');
+const timeLeft = document.querySelector('.time')
 
 // movingFears() => {
 //     const position = fears.getBoundingClientRect();
@@ -16,16 +18,17 @@ const gameSpace = document.querySelector('#game-board');
 
 function killFears () {
     fears.addEventListener('click', (event) => {
-        event.preventDefault()
-        fears.classList.add('shake') // сделать анимацию тряски при убийстве страхов;
+        event.preventDefault();
+        fears.classList.add('.shake'); // сделать анимацию тряски при убийстве страхов;
         for (key of fears) {
             key.setAttribute('disabled', ''); // Страх по которому попали становится неактивным
         }
         fears.style.opacity = 0;
         })
-    }
+}
 
 
+// Можно оставить две разные функции на добавление и убавление очков, но я решил объединить в одну, мне кажется, так лаконичнее выходит
 // function obstacle_click () {
 //     obstacles.addEventListener('click', (event) => {
 //         if (event.target.classList.contains('obstacle')) {
@@ -33,16 +36,38 @@ function killFears () {
 //         }
 //     })
 // }
-// Можно оставить две разные функции на добавление и убавление очков, но я решил объединить в одну, мне кажется, так лаконичнее выходит
 
-gameSpace.addEventListener('click', event => {
-    if (event.target.classList.contains ('fear')) {
-        score++
-        event.target.killFears()
+
+gameSpace.addEventListener('click', event => { // Здесь счётчик увеличивается за клик по страху и уменьшается за клики в других областях
+    if (event.target.classList.contains ('.fear')) {
+        score++;
+        event.target.killFears();
     } else {
         score--
     }
-    // Здесь счётчик увеличивается за клик по страху и уменьшается за клики в других областях
 })
 
+function gameStart() { //Старт игры запускает таймер
+    setGameTime(timeLeft);
+} 
 
+function setGameTime(value) { //Выбранное время таймера прописывается в блоке
+    timeLeft.innerHTML = `00:${value}`;
+} 
+
+function endOfTheGame() { // Игра останавливается при таймере равном 0
+    if (time===0) {
+        stopTheGame();
+    }
+} 
+
+function stopTheGame() { //Таймер скрывается, при разном количестве очков выводятся разные сообщения.
+    timeLeft.style.visibility = "hidden"
+    if(score<=5) {
+        gameSpace.innerHTML = `<h1>Количество очков:${score}.<br>Страхи пока мешают ребёнку адаптироваться в семье. Попробуйте помочь ему ещё раз</h1>`;
+    } else if (score>5 && score<15) {
+        gameSpace.innerHTML = `<h1>Количество очков:<span>${score}.</span><br>У Вас отлично получается! Сыграете ещё раз?</h1>`;
+    } else {
+        gameSpace.innerHTML = `<h1>Количество очков:<span>${score}.</span><br>Все страхи побеждены раз и навсегда! Сыграете ещё раз?</h1>`;
+    }
+}
