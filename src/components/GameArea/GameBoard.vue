@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { useStateStore } from '../../stores/store';
+import { useStateStore } from '../../stores/state';
 
 export default {
   data() {

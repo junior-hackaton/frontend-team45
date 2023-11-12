@@ -30,7 +30,7 @@
                   v-for="option in state.difficultyOptions"
                   :key="option"
                   @click="selectDifficulty(option)"
-                  :class="{ active: selectedDifficulty === option }"
+                  :class="{ active: state.selectedDifficulty === option }"
                 >
                   {{ option }}
                 </div>
@@ -54,10 +54,9 @@
 <script>
 import GameRules from './GameRules.vue';
 import LegendInfo from './LegendInfo.vue';
-import { useCounterStore } from '@/stores/counter.js';
 import FearItemTransition from './GameTools/FearItemTransition.vue';
 import GameBoard from './GameBoard.vue';
-import { useStateStore } from '@/stores/store.js'
+import { useStateStore } from '@/stores/state.js'
 
 export default {
   components: {
@@ -98,7 +97,7 @@ export default {
       this.state.showLegend = !this.state.showLegend;
     }
   },
-  components: { GameRules, GameBoard, FearItem, LegendInfo, CongratulationsScreen, FearItemTransition }
+  components: { GameRules, GameBoard, FearItemTransition, LegendInfo,  FearItemTransition }
 };
 </script>
 
