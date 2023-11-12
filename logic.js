@@ -23,8 +23,11 @@ function killFears () {
         for (key of fears) {
             key.setAttribute('disabled', ''); // Страх по которому попали становится неактивным
         }
-        fears.style.opacity = 0;
+        setInterval(fearDisappear, 1000) 
         })
+}
+function fearDisappear() {
+    fears.style.opacity = 0;
 }
 
 
