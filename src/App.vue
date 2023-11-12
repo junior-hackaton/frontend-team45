@@ -9,6 +9,11 @@
 </template>
 
 <script>
+import GameScreen from './components/GameArea/GameScreen.vue';
+import GameRules from './components/GameArea/GameRules.vue';
+import GameBoard from './components/GameArea/GameBoard.vue';
+import CongratulationsScreen from './components/GameArea/CongratulationsScreen.vue';
+
 export default {
   data() {
     return {
