@@ -4,6 +4,10 @@
     <GameBoard />
     <CongratulationsScreen />
     <LegendInfo />
+    <p v-if="counter.isTimerOn">Оставшееся время: {{ counter.time }}</p>
+    <v-btn @click="counter.startTimer"> Погнали </v-btn>
+    <v-btn @click="counter.restartTimer">Начать заново</v-btn>
+    <FearItem />
   </div>
 </template>
 
@@ -11,9 +15,17 @@
 import CongratulationsScreen from './CongratulationsScreen.vue';
 import GameBoard from './GameBoard.vue';
 import GameRules from './GameRules.vue';
+import FearItem from './GameTools/FearItem.vue';
 import LegendInfo from './LegendInfo.vue';
+import { useCounterStore } from '@/stores/counter.js';
 
-export default { components: { GameBoard, GameRules, CongratulationsScreen, LegendInfo } };
+export default {
+  setup() {
+    const counter = useCounterStore();
+    return { counter };
+  },
+  components: { GameRules, GameBoard, FearItem }
+};
 </script>
 
 <style lang="scss" scoped></style>
