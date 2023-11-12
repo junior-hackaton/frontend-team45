@@ -1,35 +1,25 @@
-# frontend-team45
+# frontend-team45 
+Children's Scares Shooter
 
-This template should help get you started developing with Vue 3 in Vite.
+Проект создан замечательной дрим-тим #45 и представляет собой браузерную игру, написанную на JavaScript и Vue.js.
+Управляйте курсором, выбирайте уровень сложности и побеждайте страхи в отведенное время.
 
-## Recommended IDE Setup
+## Реализованные функции
+Вывод поля с правилами игры и приглашением начать.
+Визуализация страхов с анимацией появления и исчезновения.
+Возможность отстреливать страхи.
+Возможность начать игру заново.
+Экран поздравления с окончанием игры и отображением количества очков.
+"Легенда" о страхах.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Дополнительные возможности
+Выбор разного времени для партий.
+Адаптивный дизайн для игры на планшетах и телефонах.
 
-## Customize configuration
+## Контакты
+Алексей @apadosik
+Илья @ilyaburch
+Тоня @Tonchen
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
