@@ -41,15 +41,16 @@
       </div>
     </div>
 
-    <div v-if="showGameRules" class="rules__text">
+
       <GameRules :rulesText="showGameRules" @close-rules-text="toggleGameRules" />
-    </div>
-    <div v-if="showLegend" class="legend__text">
+
+
       <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
-    </div>
-  <div v-if="showGameBoard" class="game-board" :key="showGameBoard">
-      <GameBoard />
-    </div>
+
+    
+   <GameBoard :show="showGameBoard" />
+    
+    
   </div>
 </template>
 
@@ -58,7 +59,9 @@ import GameRules from './GameRules.vue';
 import LegendInfo from './LegendInfo.vue';
 import GameBoard from './GameBoard.vue';
 
+
 export default {
+ 
   components: {
     GameRules,
     LegendInfo,
@@ -91,7 +94,8 @@ export default {
     },
     toggleLegend() {
       this.showLegend = !this.showLegend;
-    }
+    },
+    
   }
 };
 </script>

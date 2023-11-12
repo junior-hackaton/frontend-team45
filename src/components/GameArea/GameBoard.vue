@@ -1,35 +1,49 @@
 <template>
   <div class="wrapper">
     <div class="container">
-      <div class="game-board">
+      <div v-if="!showGameScreen" class="game-board">
         <div class="game-board__buttons">
           <button class="game-board__button" @click="restartGame">Начать заново</button>
           <button class="game-board__button" @click="goToMainMenu">Главное меню</button>
         </div>
-        <div class="game-board__field">
-          
-        </div>
+        <div class="game-board__field"></div>
       </div>
+      <GameScreen v-if="showGameScreen" />
     </div>
   </div>
 </template>
 
 <script>
+import GameScreen from './GameScreen.vue';
+
 export default {
-  props: ['gameBoard'],
+  components: {
+    GameScreen
+  },
+  data() {
+    return {
+      showGameScreen: false
+    };
+  },
   methods: {
     restartGame() {
       console.log('Game restarted');
+    },
+    goToMainMenu() {
+      this.showGameScreen = !this.showGameScreen; 
     }
   }
 };
 </script>
-
 <style lang="scss" scoped>
 .wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
   background-color: rgb(77, 154, 133);
   padding: 2em;
   height: 100vh;
+
   @media screen and (max-width: 400px) {
     padding: 1em;
   }
