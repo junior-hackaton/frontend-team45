@@ -1,19 +1,21 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import GameScreen from './components/GameArea/GameScreen.vue';
-import GameRules from './components/GameArea/GameRules.vue';
-import GameBoard from './components/GameArea/GameBoard.vue';
-import CongratulationsScreen from './components/GameArea/CongratulationsScreen.vue';
-import LegendInfo from './components/GameArea/LegendInfo.vue';
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
-const app = createApp(App);
+import App from './App.vue'
+import router from './router'
 
+const vuetify = createVuetify({
+    components,
+    directives,
+});
+const app = createApp(App)
 
-app.component('game-screen', GameScreen);
-app.component('game-rules', GameRules);
-app.component('game-board', GameBoard);
-app.component('congratulations-screen', CongratulationsScreen);
-app.component('legend-info', LegendInfo);
+app.use(createPinia())
+app.use(router)
+app.use(vuetify)
 
-app.mount('#app');
-
+app.mount('#app')
