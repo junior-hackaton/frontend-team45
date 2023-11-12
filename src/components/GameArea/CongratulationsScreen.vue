@@ -12,9 +12,7 @@
         </div>
       </div>
     </div>
-    <div v-if="showGameScreen">
-      <GameScreen @go-to-main="goToGameScreen" />
-    </div>
+  
     <div v-if="showGameBoard">
       <GameBoard @go-to-game="restartGame" />
     </div>
@@ -22,12 +20,12 @@
 </template>
 
 <script>
-import GameScreen from './GameScreen.vue';
+
 import GameBoard from './GameBoard.vue';
 
 export default {
   components: {
-    GameScreen,
+
     GameBoard
   },
   data() {
@@ -44,12 +42,11 @@ export default {
       this.showGameBoard = true;
       console.log('Game restarted');
     },
-    goToGameScreen() {
+     goToGameScreen() {
       this.showGameScreen = false;
-    },
-    startGame() {
-      this.showGameScreen = true;
+      console.log('Navigating to the game screen');
     }
+    
   }
 };
 </script>
