@@ -37,7 +37,7 @@ export default {
             // selectActive: false,
             // showLegend: false,
             // showGameBoard: false
-            state
+            state, counter
         };
     },
     methods: {

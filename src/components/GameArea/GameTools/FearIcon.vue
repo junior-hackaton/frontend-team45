@@ -136,7 +136,7 @@
 </template>
 
 <script>
-  import { useCounterStore } from '../../stores/counter';
+  import { useCounterStore } from '@/stores/counter.js';
   export default {
     setup(){
     const counter = useCounterStore();
