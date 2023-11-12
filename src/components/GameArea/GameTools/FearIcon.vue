@@ -1,7 +1,6 @@
 <template>
-  <div class="fear-item">
-    <div class="fear-item--moving">
-      <svg
+  <div>
+    <svg
         version="1.1"
         id="svg1986"
         xml:space="preserve"
@@ -133,41 +132,15 @@
           </g>
         </g>
       </svg>
-    </div>
   </div>
 </template>
 
 <script>
-export default {
-  setup(){
-    const speed = (Math.random() * 3) + 0.75;
-    const delay = Math.floor(Math.random() * 5) + 1;
-    return {speed, delay}
+  export default {
+    
   }
-  // ;
-};
 </script>
 
 <style lang="scss" scoped>
-.fear-item {
-  // display: flex;
-  // flex-direction: column;
-  width: 200px;
-  height: 320px;
-}
-.fear-item--moving {
-  width: 200px;
-  height: 200px;
-  // margin-top: 300px;
-  // animation: name duration timing-function delay iteration-count direction fill-mode;
-  animation: slideOut infinite ease;
-  animation-duration: calc(v-bind(speed) * 1s);
-  animation-delay: calc(v-bind(delay) * 1s);
-}
 
-@keyframes slideOut {
-  50% {
-    transform: translate(0, 100%);
-  }
-}
 </style>
