@@ -11,19 +11,24 @@
 </template>
 
 <script>
+import { useStateStore } from '../../stores/store';
+
 export default {
   data() {
+    const state = useStateStore();
     return {
-      showGameScreen: false
+      // showGameRules: false,
+      // selectedDifficulty: 'easy',
+      // difficultyOptions: ['easy', 'medium', 'hard'],
+      // selectActive: false,
+      // showLegend: false,
+      // showGameBoard: false
+      state
     };
   },
-  methods: {
-    restartGame() {
-      console.log('Game restarted');
-    },
-
-    closeGameBoard() {
-      this.showGameScreen = true;
+  methods:{
+    closeGameBoard(){
+      this.state.showGameBoard = false;
     }
   }
 };

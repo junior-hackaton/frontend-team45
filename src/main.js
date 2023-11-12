@@ -1,19 +1,11 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import GameScreen from './components/GameArea/GameScreen.vue';
-import GameRules from './components/GameArea/GameRules.vue';
-import GameBoard from './components/GameArea/GameBoard.vue';
-import CongratulationsScreen from './components/GameArea/CongratulationsScreen.vue';
-import LegendInfo from './components/GameArea/LegendInfo.vue';
+import { createPinia } from 'pinia'
 
 const app = createApp(App);
+const pinia = createPinia()
 
-
-app.component('game-screen', GameScreen);
-app.component('game-rules', GameRules);
-app.component('game-board', GameBoard);
-app.component('congratulations-screen', CongratulationsScreen);
-app.component('legend-info', LegendInfo);
+app.use(pinia)
 
 app.mount('#app');
 

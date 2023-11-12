@@ -1,8 +1,8 @@
 <template>
   <div>
-    <GameScreen v-if="state.screen" />
+    <GameScreen/>
     <GameRules v-if="state.rules" />
-    <GameBoard v-if="state.board" />
+    <GameBoard v-if="state.showGameBoard" />
     <CongratulationsScreen v-if="state.congatulations" />
     <LegendInfo v-if="state.legend" />
   </div>
