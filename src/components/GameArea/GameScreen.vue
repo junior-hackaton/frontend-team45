@@ -1,5 +1,3 @@
-
-
 <template>
   <div>
     <div class="wrapper">
@@ -49,9 +47,9 @@
     <div v-if="showLegend" class="legend__text">
       <LegendInfo :legendText="showLegend" @close-legend-text="toggleLegend" />
     </div>
-    <!-- <div v-if="showGameBoard">
+  <div v-if="showGameBoard" class="game-board" :key="showGameBoard">
       <GameBoard />
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -59,6 +57,7 @@
 import GameRules from './GameRules.vue';
 import LegendInfo from './LegendInfo.vue';
 import GameBoard from './GameBoard.vue';
+
 export default {
   components: {
     GameRules,
@@ -77,7 +76,7 @@ export default {
   },
   methods: {
     startGame() {
-      this.showGameBoard = !this.showGameBoard;
+      this.showGameBoard = true;
       console.log('showGameBoard:', this.showGameBoard);
     },
     toggleGameRules() {
@@ -241,7 +240,7 @@ export default {
     &:hover {
       background: (rgb(172, 80, 80), 1.5%);
       color: lighten(rgb(172, 80, 80), 18%);
-        text-shadow: -1px -1px 0 (rgb(172, 80, 80), 9.5%);
+      text-shadow: -1px -1px 0 (rgb(172, 80, 80), 9.5%);
       transition: all 250ms linear;
     }
     @media screen and (max-width: 630px) {
@@ -287,4 +286,3 @@ button {
   outline: 1px rgb(87, 45, 45) solid;
 }
 </style>
-

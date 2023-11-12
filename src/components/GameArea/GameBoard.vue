@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ['fears'],
+  props: ['gameBoard'],
   methods: {
     restartGame() {
       console.log('Game restarted');
